@@ -10,13 +10,13 @@ import (
 func TestValidate(t *testing.T) {
 	testCases := []struct {
 		name    string
-		request createValidateateUserRequest
+		request createUserRequest
 		ok      bool
 		err     error
 	}{
 		{
 			name: "Ok",
-			request: createValidateateUserRequest{
+			request: createUserRequest{
 				Name:  "tesr",
 				Email: "test@tt.com",
 				Phone: "1234567890",
@@ -25,7 +25,7 @@ func TestValidate(t *testing.T) {
 		},
 		{
 			name: "Bad request, short user name",
-			request: createValidateateUserRequest{
+			request: createUserRequest{
 				Name:  "",
 				Email: "test@tt.com",
 				Phone: "1234567890",
@@ -35,7 +35,7 @@ func TestValidate(t *testing.T) {
 		},
 		{
 			name: "Bad request, wrong user email",
-			request: createValidateateUserRequest{
+			request: createUserRequest{
 				Name:  "test",
 				Email: "test@com",
 				Phone: "1234567890",
@@ -45,7 +45,7 @@ func TestValidate(t *testing.T) {
 		},
 		{
 			name: "Bad request, short user phone",
-			request: createValidateateUserRequest{
+			request: createUserRequest{
 				Name:  "test",
 				Email: "test@tt.com",
 				Phone: "123",

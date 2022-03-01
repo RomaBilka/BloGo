@@ -22,13 +22,13 @@ func NewUserHttp(userService userService) *userHTTP {
 	return &userHTTP{userService: userService}
 }
 
-type createValidateateUserRequest struct {
+type createUserRequest struct {
 	Name  string `json:"name"`
 	Email string `json:"email"`
 	Phone string `json:"phone"`
 }
 
-func (r *createValidateateUserRequest) validate() (bool, error) {
+func (r *createUserRequest) validate() (bool, error) {
 	if len(r.Name) < 3 {
 		return false, fmt.Errorf("%s", "Bad request, short user name")
 	}
@@ -58,7 +58,7 @@ func (h *userHTTP) CreateUser(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	userRequest := &createValidateateUserRequest{}
+	userRequest := &createUserRequest{}
 
 	err := json.NewDecoder(r.Body).Decode(userRequest)
 	if err != nil {
