@@ -2,7 +2,6 @@ package repositories
 
 import (
 	"database/sql"
-	"log"
 	"regexp"
 	"testing"
 
@@ -10,17 +9,15 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func NewMock() (*sql.DB, sqlmock.Sqlmock) {
+func NewMock(t *testing.T) (*sql.DB, sqlmock.Sqlmock) {
 	db, mock, err := sqlmock.New()
-	if err != nil {
-		log.Fatalf("an error '%s' was not expected when opening a stub database connection", err)
-	}
+	assert.NoError(t, err)
 
 	return db, mock
 }
 
 func TestCreateUserMock(t *testing.T) {
-	db, mock := NewMock()
+	db, mock := NewMock(t)
 	defer db.Close()
 
 	repo := NewPostgreUserRepository(db)
@@ -36,7 +33,7 @@ func TestCreateUserMock(t *testing.T) {
 }
 
 func TestGetUserByIdMock(t *testing.T) {
-	db, mock := NewMock()
+	db, mock := NewMock(t)
 	defer db.Close()
 
 	repo := NewPostgreUserRepository(db)
@@ -51,9 +48,8 @@ func TestGetUserByIdMock(t *testing.T) {
 	assert.NoError(t, err)
 }
 
-
 func TestCheckUserExistsMock(t *testing.T) {
-	db, mock := NewMock()
+	db, mock := NewMock(t)
 	defer db.Close()
 
 	repo := NewPostgreUserRepository(db)
