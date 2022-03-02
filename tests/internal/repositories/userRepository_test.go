@@ -34,7 +34,6 @@ func TestGetUserById(t *testing.T) {
 	assert.NoError(t, err)
 }
 
-
 func TestCheckUserExistsTrue(t *testing.T) {
 	defer func() {
 		err := truncateUsers()

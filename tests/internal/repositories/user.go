@@ -16,20 +16,14 @@ type UserRepository struct {
 	db *sql.DB
 }
 
-func (r *UserRepository) CheckUserExists(user models.User) (bool, error) {
+func (r *UserRepository) CreateUser(user models.User) (models.UserId, error) {
 	id := 0
-
-	err := r.db.QueryRow("SELECT id FROM users WHERE email=$1 OR phone=$2", user.Email, user.Phone).Scan(&id)
-
-	if err != nil && err != sql.ErrNoRows {
-		return false, err
+	err := r.db.QueryRow("INSERT INTO users (name, email, phone) VALUES ($1, $2, $3)  RETURNING id", user.Name, user.Email, user.Phone).Scan(&id)
+	if err != nil {
+		return 0, err
 	}
 
-	if id > 0 {
-		return true, nil
-	}
-
-	return false, nil
+	return models.UserId(id), nil
 }
 
 func (r *UserRepository) GetUserById(id models.UserId) (models.User, error) {
@@ -44,12 +38,18 @@ func (r *UserRepository) GetUserById(id models.UserId) (models.User, error) {
 	return user, nil
 }
 
-func (r *UserRepository) CreateUser(user models.User) (models.UserId, error) {
+func (r *UserRepository) CheckUserExists(user models.User) (bool, error) {
 	id := 0
-	err := r.db.QueryRow("INSERT INTO users (name, email, phone) VALUES ($1, $2, $3)  RETURNING id", user.Name, user.Email, user.Phone).Scan(&id)
-	if err != nil {
-		return 0, err
+
+	err := r.db.QueryRow("SELECT id FROM users WHERE email=$1 OR phone=$2", user.Email, user.Phone).Scan(&id)
+
+	if err != nil && err != sql.ErrNoRows {
+		return false, err
 	}
 
-	return models.UserId(id), nil
+	if id > 0 {
+		return true, nil
+	}
+
+	return false, nil
 }
