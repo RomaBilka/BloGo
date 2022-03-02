@@ -2,12 +2,10 @@ package repositories
 
 import (
 	"database/sql"
-	"errors"
 	"os"
 	"testing"
 
 	"github.com/RomaBiliak/BloGo/project-layout/tests/internal/models"
-	"github.com/RomaBiliak/BloGo/project-layout/tests/pkg/database/postgres"
 	"github.com/bxcodec/faker/v3"
 	"github.com/joho/godotenv"
 )
@@ -36,7 +34,7 @@ func TestMain(m *testing.M) {
 	}
 
 	userTest = models.User{Name: userTest.Name, Email: userTest.Email, Phone: userTest.Phone}
-
+/*
 	pgUser, ok := os.LookupEnv("PG_USER")
 	if !ok {
 		panic(errors.New("PG_USER is empty"))
@@ -63,7 +61,7 @@ func TestMain(m *testing.M) {
 	db = postgres.Run(dbConfig)
 
 	defer db.Close()
-	testUserRepository = NewPostgreUserRepository(db)
+	testUserRepository = NewPostgreUserRepository(db)*/
 
 	os.Exit(m.Run())
 }
