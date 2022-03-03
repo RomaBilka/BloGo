@@ -4,8 +4,10 @@ import (
 	"database/sql"
 	"os"
 	"testing"
+	"errors"
 
 	"github.com/RomaBilka/BloGo/tests/internal/models"
+	"github.com/RomaBilka/BloGo/tests/pkg/database/postgres"
 	"github.com/bxcodec/faker/v3"
 	"github.com/joho/godotenv"
 )
@@ -35,34 +37,34 @@ func TestMain(m *testing.M) {
 	}
 
 	userTest = models.User{Name: userTest.Name, Email: userTest.Email, Phone: userTest.Phone}
-	/*
-		pgUser, ok := os.LookupEnv("PG_USER")
-		if !ok {
-			panic(errors.New("PG_USER is empty"))
-		}
-		pgPassword, ok := os.LookupEnv("PG_PASSWORD")
-		if !ok {
-			panic(errors.New("PG_PASSWORD is empty"))
-		}
-		pgDatabase, ok := os.LookupEnv("PG_TEST_DATABASE")
-		if !ok {
-			panic(errors.New("PG_TEST_DATABASE is empty"))
-		}
-		pgHost, ok := os.LookupEnv("PG_HOST")
-		if !ok {
-			panic(errors.New("Db Host is empty"))
-		}
 
-		dbConfig := postgres.Config{
-			pgUser,
-			pgPassword,
-			pgDatabase,
-			pgHost,
-		}
-		db = postgres.Run(dbConfig)
+	pgUser, ok := os.LookupEnv("PG_USER")
+	if !ok {
+		panic(errors.New("PG_USER is empty"))
+	}
+	pgPassword, ok := os.LookupEnv("PG_PASSWORD")
+	if !ok {
+		panic(errors.New("PG_PASSWORD is empty"))
+	}
+	pgDatabase, ok := os.LookupEnv("PG_TEST_DATABASE")
+	if !ok {
+		panic(errors.New("PG_TEST_DATABASE is empty"))
+	}
+	pgHost, ok := os.LookupEnv("PG_HOST")
+	if !ok {
+		panic(errors.New("Db Host is empty"))
+	}
 
-		defer db.Close()
-		testUserRepository = NewPostgreUserRepository(db)*/
+	dbConfig := postgres.Config{
+		pgUser,
+		pgPassword,
+		pgDatabase,
+		pgHost,
+	}
+	db = postgres.Run(dbConfig)
+
+	defer db.Close()
+	testUserRepository = NewPostgreUserRepository(db)
 
 	os.Exit(m.Run())
 }
