@@ -30,7 +30,7 @@ func TestValidate(t *testing.T) {
 				Email: "test@tt.com",
 				Phone: "1234567890",
 			},
-			ok: false,
+			ok:  false,
 			err: fmt.Errorf("%s", "Bad request, short user name"),
 		},
 		{
@@ -40,7 +40,7 @@ func TestValidate(t *testing.T) {
 				Email: "test@com",
 				Phone: "1234567890",
 			},
-			ok: false,
+			ok:  false,
 			err: fmt.Errorf("%s", "Bad request, wrong user email"),
 		},
 		{
@@ -50,7 +50,7 @@ func TestValidate(t *testing.T) {
 				Email: "test@tt.com",
 				Phone: "123",
 			},
-			ok: false,
+			ok:  false,
 			err: fmt.Errorf("%s", "Bad request, short user phone"),
 		},
 	}

@@ -6,7 +6,6 @@ import (
 	"os"
 	"testing"
 
-
 	"github.com/RomaBilka/BloGo/tests/internal/models"
 	"github.com/RomaBilka/BloGo/tests/internal/repositories"
 	"github.com/RomaBilka/BloGo/tests/internal/services"
@@ -20,7 +19,6 @@ var testUserRepository *repositories.UserRepository
 
 var uHttp *userHTTP
 
-
 type errorResponse struct {
 	Error string `json:"error"`
 }
@@ -30,7 +28,7 @@ var db *sql.DB
 var userTest createUserRequest
 
 type testData struct {
-	Name string `faker:"name"`
+	Name  string `faker:"name"`
 	Email string `faker:"email"`
 	Phone string `faker:"e_164_phone_number"`
 }
