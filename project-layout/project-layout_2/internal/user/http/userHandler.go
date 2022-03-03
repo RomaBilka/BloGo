@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/RomaBiliak/BloGo/project-layout/project-layou_2/internal/user"
-	"github.com/RomaBiliak/BloGo/project-layout/project-layou_2/pkg/response"
+	"github.com/RomaBilka/BloGo/project-layout/project-layou_2/internal/user"
+	"github.com/RomaBilka/BloGo/project-layout/project-layou_2/pkg/response"
 )
 
 type userService interface {

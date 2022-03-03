@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/RomaBiliak/BloGo/project-layout/project-layou_2/internal/product"
-	"github.com/RomaBiliak/BloGo/project-layout/project-layou_2/pkg/response"
+	"github.com/RomaBilka/BloGo/project-layout/project-layou_2/internal/product"
+	"github.com/RomaBilka/BloGo/project-layout/project-layou_2/pkg/response"
 	"github.com/gorilla/mux"
 )
 

@@ -7,10 +7,10 @@ import (
 	"testing"
 
 
-	"github.com/RomaBiliak/BloGo/project-layout/tests/internal/models"
-	"github.com/RomaBiliak/BloGo/project-layout/tests/internal/repositories"
-	"github.com/RomaBiliak/BloGo/project-layout/tests/internal/services"
-	"github.com/RomaBiliak/BloGo/project-layout/tests/pkg/database/postgres"
+	"github.com/RomaBilka/BloGo/tests/internal/models"
+	"github.com/RomaBilka/BloGo/tests/internal/repositories"
+	"github.com/RomaBilka/BloGo/tests/internal/services"
+	"github.com/RomaBilka/BloGo/tests/pkg/database/postgres"
 	"github.com/bxcodec/faker/v3"
 	"github.com/joho/godotenv"
 	"github.com/stretchr/testify/assert"

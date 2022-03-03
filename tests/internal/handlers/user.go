@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"net/mail"
 
-	"github.com/RomaBiliak/BloGo/project-layout/tests/internal/models"
-	"github.com/RomaBiliak/BloGo/project-layout/tests/pkg/response"
+	"github.com/RomaBilka/BloGo/tests/internal/models"
+	"github.com/RomaBilka/BloGo/tests/pkg/response"
 )
 
 type userService interface {

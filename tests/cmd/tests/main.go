@@ -5,11 +5,11 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/RomaBiliak/BloGo/project-layout/tests/internal/handlers"
-	"github.com/RomaBiliak/BloGo/project-layout/tests/internal/repositories"
-	"github.com/RomaBiliak/BloGo/project-layout/tests/internal/services"
-	"github.com/RomaBiliak/BloGo/project-layout/tests/pkg/database/postgres"
-	httpServer "github.com/RomaBiliak/BloGo/project-layout/tests/pkg/http"
+	"github.com/RomaBilka/BloGo/tests/internal/handlers"
+	"github.com/RomaBilka/BloGo/tests/internal/repositories"
+	"github.com/RomaBilka/BloGo/tests/internal/services"
+	"github.com/RomaBilka/BloGo/tests/pkg/database/postgres"
+	httpServer "github.com/RomaBilka/BloGo/tests/pkg/http"
 	"github.com/joho/godotenv"
 )
 

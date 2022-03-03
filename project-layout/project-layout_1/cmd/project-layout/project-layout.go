@@ -3,12 +3,12 @@ package main
 import (
 	"net/http"
 
-	"github.com/RomaBiliak/BloGo/project-layout/project-layou_1/configs"
-	"github.com/RomaBiliak/BloGo/project-layout/project-layou_1/internal/handlers"
-	"github.com/RomaBiliak/BloGo/project-layout/project-layou_1/internal/repositories"
-	"github.com/RomaBiliak/BloGo/project-layout/project-layou_1/internal/services"
-	"github.com/RomaBiliak/BloGo/project-layout/project-layou_1/pkg/database/postgres"
-	httpServer "github.com/RomaBiliak/BloGo/project-layout/project-layou_1/pkg/http"
+	"github.com/RomaBilka/BloGo/project-layout/project-layou_1/configs"
+	"github.com/RomaBilka/BloGo/project-layout/project-layou_1/internal/handlers"
+	"github.com/RomaBilka/BloGo/project-layout/project-layou_1/internal/repositories"
+	"github.com/RomaBilka/BloGo/project-layout/project-layou_1/internal/services"
+	"github.com/RomaBilka/BloGo/project-layout/project-layou_1/pkg/database/postgres"
+	httpServer "github.com/RomaBilka/BloGo/project-layout/project-layou_1/pkg/http"
 	"github.com/gorilla/mux"
 )
 

@@ -1,4 +1,4 @@
-module github.com/RomaBiliak/BloGo/project-layout/project-layou_1
+module github.com/RomaBilka/BloGo/project-layout/project-layou_1
 
 go 1.17
 

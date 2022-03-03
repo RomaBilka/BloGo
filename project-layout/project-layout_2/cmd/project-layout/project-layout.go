@@ -3,13 +3,13 @@ package main
 import (
 	"net/http"
 
-	"github.com/RomaBiliak/BloGo/project-layout/project-layou_2/configs"
-	"github.com/RomaBiliak/BloGo/project-layout/project-layou_2/internal/product"
-	productHttp "github.com/RomaBiliak/BloGo/project-layout/project-layou_2/internal/product/http"
-	"github.com/RomaBiliak/BloGo/project-layout/project-layou_2/internal/user"
-	userHttp "github.com/RomaBiliak/BloGo/project-layout/project-layou_2/internal/user/http"
-	"github.com/RomaBiliak/BloGo/project-layout/project-layou_2/pkg/database/postgres"
-	httpServer "github.com/RomaBiliak/BloGo/project-layout/project-layou_2/pkg/http"
+	"github.com/RomaBilka/BloGo/project-layout/project-layou_2/configs"
+	"github.com/RomaBilka/BloGo/project-layout/project-layou_2/internal/product"
+	productHttp "github.com/RomaBilka/BloGo/project-layout/project-layou_2/internal/product/http"
+	"github.com/RomaBilka/BloGo/project-layout/project-layou_2/internal/user"
+	userHttp "github.com/RomaBilka/BloGo/project-layout/project-layou_2/internal/user/http"
+	"github.com/RomaBilka/BloGo/project-layout/project-layou_2/pkg/database/postgres"
+	httpServer "github.com/RomaBilka/BloGo/project-layout/project-layou_2/pkg/http"
 	"github.com/gorilla/mux"
 )
 

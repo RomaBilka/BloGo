@@ -3,7 +3,7 @@ package repositories
 import (
 	"testing"
 
-	"github.com/RomaBiliak/BloGo/project-layout/tests/internal/models"
+	"github.com/RomaBilka/BloGo/tests/internal/models"
 	"github.com/stretchr/testify/assert"
 )
 

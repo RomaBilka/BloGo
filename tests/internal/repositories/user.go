@@ -3,7 +3,7 @@ package repositories
 import (
 	"database/sql"
 
-	"github.com/RomaBiliak/BloGo/project-layout/tests/internal/models"
+	"github.com/RomaBilka/BloGo/tests/internal/models"
 )
 
 func NewPostgreUserRepository(db *sql.DB) *UserRepository {

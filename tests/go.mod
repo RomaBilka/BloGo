@@ -1,4 +1,4 @@
-module github.com/RomaBiliak/BloGo/project-layout/tests
+module github.com/RomaBilka/BloGo/tests
 
 go 1.17
 
