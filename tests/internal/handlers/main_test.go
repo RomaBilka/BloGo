@@ -4,9 +4,12 @@ import (
 	"database/sql"
 	"os"
 	"testing"
+	"errors"
 
+	"github.com/RomaBilka/BloGo/tests/pkg/database/postgres"
 	"github.com/RomaBilka/BloGo/tests/internal/models"
 	"github.com/RomaBilka/BloGo/tests/internal/repositories"
+	"github.com/RomaBilka/BloGo/tests/internal/services"
 	"github.com/bxcodec/faker/v3"
 	"github.com/joho/godotenv"
 	"github.com/stretchr/testify/assert"
@@ -44,7 +47,7 @@ func TestMain(m *testing.M) {
 	}
 
 	userTest = createUserRequest{test.Name, test.Email, test.Phone}
-/*
+
 	pgUser, ok := os.LookupEnv("PG_USER")
 	if !ok {
 		panic(errors.New("PG_USER is empty"))
@@ -75,7 +78,7 @@ func TestMain(m *testing.M) {
 
 	userService := services.NewUserService(testUserRepository)
 	uHttp = NewUserHttp(userService)
-*/
+
 	os.Exit(m.Run())
 }
 
