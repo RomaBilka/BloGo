@@ -2,9 +2,9 @@ package repositories
 
 import (
 	"database/sql"
+	"errors"
 	"os"
 	"testing"
-	"errors"
 
 	"github.com/RomaBilka/BloGo/tests/internal/models"
 	"github.com/RomaBilka/BloGo/tests/pkg/database/postgres"
