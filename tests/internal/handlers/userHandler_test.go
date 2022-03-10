@@ -36,7 +36,6 @@ func TestCreateUser(t *testing.T) {
 
 	userResponse := &createUserResponse{}
 	err := json.NewDecoder(recorder.Body).Decode(userResponse)
-
 	assert.NoError(t, err)
 
 	userInDb, err := testUserRepository.GetUserById(models.UserId(userResponse.Id))
