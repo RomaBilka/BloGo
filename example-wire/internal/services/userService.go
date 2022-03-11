@@ -6,7 +6,7 @@ import (
 	"github.com/RomaBilka/BloGo/example-wire/internal/models"
 )
 
-type userRepository interface {
+type UserRepository interface {
 	CreateUser(user models.User) (models.UserId, error)
 	GetUserById(id models.UserId) (models.User, error)
 	GetUserByEmail(email string) (models.User, error)
@@ -16,10 +16,10 @@ type userRepository interface {
 }
 
 type UserService struct {
-	repository userRepository
+	repository UserRepository
 }
 
-func NewUserService(repository userRepository) *UserService {
+func NewUserService(repository UserRepository) *UserService {
 	return &UserService{
 		repository: repository,
 	}

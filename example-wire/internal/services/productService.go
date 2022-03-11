@@ -6,7 +6,7 @@ import (
 	"github.com/RomaBilka/BloGo/example-wire/internal/models"
 )
 
-type productRepository interface {
+type ProductRepository interface {
 	CreateProduct(product models.Product) (models.ProductId, error)
 	GetProductById(id models.ProductId) (models.Product, error)
 	UpdateProduct(id models.ProductId, Product models.Product) error
@@ -15,10 +15,10 @@ type productRepository interface {
 }
 
 type ProductService struct {
-	repository productRepository
+	repository ProductRepository
 }
 
-func NewProductService(repository productRepository) *ProductService {
+func NewProductService(repository ProductRepository) *ProductService {
 	return &ProductService{
 		repository: repository,
 	}

@@ -10,7 +10,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
-type productService interface {
+type ProductService interface {
 	CreateProduct(product models.Product) (models.Product, error)
 	GetProduct(id models.ProductId) (models.Product, error)
 	DeleteProduct(id models.ProductId) error
@@ -19,10 +19,10 @@ type productService interface {
 }
 
 type ProductHTTP struct {
-	productService productService
+	productService ProductService
 }
 
-func NewProductHttp(productService productService) *ProductHTTP {
+func NewProductHttp(productService ProductService) *ProductHTTP {
 	return &ProductHTTP{productService: productService}
 }
 

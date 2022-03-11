@@ -10,7 +10,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
-type userService interface {
+type UserService interface {
 	CreateUser(user models.User) (models.User, error)
 	GetUser(id models.UserId) (models.User, error)
 	DeleteUser(id models.UserId) error
@@ -18,12 +18,12 @@ type userService interface {
 	GetUsers() ([]models.User, error)
 }
 
-type userHTTP struct {
-	userService userService
+type UserHTTP struct {
+	userService UserService
 }
 
-func NewUserHttp(userService userService) *userHTTP {
-	return &userHTTP{userService: userService}
+func NewUserHttp(userService UserService) *UserHTTP {
+	return &UserHTTP{userService: userService}
 }
 
 type createUserRequest struct {
@@ -37,7 +37,7 @@ type createUserResponse struct {
 	Email string `json:"email"`
 }
 
-func (h *userHTTP) CreateUser(w http.ResponseWriter, r *http.Request) {
+func (h *UserHTTP) CreateUser(w http.ResponseWriter, r *http.Request) {
 	userRequest := &createUserRequest{}
 
 	err := json.NewDecoder(r.Body).Decode(userRequest)
@@ -61,7 +61,7 @@ func (h *userHTTP) CreateUser(w http.ResponseWriter, r *http.Request) {
 	response.WriteJSON(w, http.StatusCreated, createUserResponse{Id: uint64(newUser.Id), Name: newUser.Name, Email: newUser.Email})
 }
 
-func (h *userHTTP) UpdateUser(w http.ResponseWriter, r *http.Request) {
+func (h *UserHTTP) UpdateUser(w http.ResponseWriter, r *http.Request) {
 	userId, err := getUserId(r)
 	if err != nil {
 		response.WriteERROR(w, http.StatusBadRequest, err)
@@ -91,7 +91,7 @@ func (h *userHTTP) UpdateUser(w http.ResponseWriter, r *http.Request) {
 	response.WriteJSON(w, http.StatusCreated, createUserResponse{Id: uint64(user.Id), Name: user.Name, Email: user.Email})
 }
 
-func (h *userHTTP) GetUser(w http.ResponseWriter, r *http.Request) {
+func (h *UserHTTP) GetUser(w http.ResponseWriter, r *http.Request) {
 	userId, err := getUserId(r)
 	if err != nil {
 		response.WriteERROR(w, http.StatusBadRequest, err)
@@ -108,7 +108,7 @@ func (h *userHTTP) GetUser(w http.ResponseWriter, r *http.Request) {
 	response.WriteJSON(w, http.StatusCreated, createUserResponse{Id: uint64(user.Id), Name: user.Name, Email: user.Email})
 }
 
-func (h *userHTTP) GetUsers(w http.ResponseWriter, r *http.Request) {
+func (h *UserHTTP) GetUsers(w http.ResponseWriter, r *http.Request) {
 	users, err := h.userService.GetUsers()
 
 	if err != nil {
@@ -125,7 +125,7 @@ func (h *userHTTP) GetUsers(w http.ResponseWriter, r *http.Request) {
 	response.WriteJSON(w, http.StatusCreated, usersResponse)
 }
 
-func (h *userHTTP) DeleteUser(w http.ResponseWriter, r *http.Request) {
+func (h *UserHTTP) DeleteUser(w http.ResponseWriter, r *http.Request) {
 	userId, err := getUserId(r)
 	if err != nil {
 		response.WriteERROR(w, http.StatusBadRequest, err)
