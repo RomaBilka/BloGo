@@ -1,5 +1,6 @@
 package main
 
+/*
 import (
 	"database/sql"
 
@@ -30,3 +31,4 @@ func InitializeProductHttp(db *sql.DB) *handlers.ProductHTTP {
 
 	return &handlers.ProductHTTP{}
 }
+*/

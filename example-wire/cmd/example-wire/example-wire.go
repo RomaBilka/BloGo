@@ -21,17 +21,16 @@ func main() {
 	defer db.Close()
 
 	r := mux.NewRouter()
-/*
-	userRepository := repositories.NewPostgreUserRepository(db)
-	userService := services.NewUserService(userRepository)
-	userHttp := handlers.NewUserHttp(userService)*/
+	/*
+		userRepository := repositories.NewPostgreUserRepository(db)
+		userService := services.NewUserService(userRepository)
+		userHttp := handlers.NewUserHttp(userService)*/
 	userHttp := InitializeUserHttp(db)
 
 	/*productRepository := repositories.NewPostgreProductRepository(db)
 	productService := services.NewProductService(productRepository)
 	productHttp := handlers.NewProductHttp(productService)*/
 	productHttp := InitializeProductHttp(db)
-
 
 	r.HandleFunc("/user", userHttp.CreateUser).Methods(http.MethodPost)
 	r.HandleFunc("/users", userHttp.GetUsers).Methods(http.MethodGet)
