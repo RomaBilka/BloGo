@@ -4,9 +4,6 @@ import (
 	"net/http"
 
 	"github.com/RomaBilka/BloGo/example-wire/configs"
-	"github.com/RomaBilka/BloGo/example-wire/internal/handlers"
-	"github.com/RomaBilka/BloGo/example-wire/internal/repositories"
-	"github.com/RomaBilka/BloGo/example-wire/internal/services"
 	"github.com/RomaBilka/BloGo/example-wire/pkg/database/postgres"
 	httpServer "github.com/RomaBilka/BloGo/example-wire/pkg/http"
 	"github.com/gorilla/mux"
@@ -24,14 +21,17 @@ func main() {
 	defer db.Close()
 
 	r := mux.NewRouter()
-
+/*
 	userRepository := repositories.NewPostgreUserRepository(db)
 	userService := services.NewUserService(userRepository)
-	userHttp := handlers.NewUserHttp(userService)
+	userHttp := handlers.NewUserHttp(userService)*/
+	userHttp := InitializeUserHttp(db)
 
-	productRepository := repositories.NewPostgreProductRepository(db)
+	/*productRepository := repositories.NewPostgreProductRepository(db)
 	productService := services.NewProductService(productRepository)
-	productHttp := handlers.NewProductHttp(productService)
+	productHttp := handlers.NewProductHttp(productService)*/
+	productHttp := InitializeProductHttp(db)
+
 
 	r.HandleFunc("/user", userHttp.CreateUser).Methods(http.MethodPost)
 	r.HandleFunc("/users", userHttp.GetUsers).Methods(http.MethodGet)
