@@ -61,7 +61,7 @@ func TestValidate(t *testing.T) {
 			ok, err := testCase.request.validate()
 
 			if !ok {
-				assert.Equal(t, err, testCase.err)
+				assert.Equal(t, testCase.err, err)
 			} else {
 				assert.NoError(t, err)
 			}

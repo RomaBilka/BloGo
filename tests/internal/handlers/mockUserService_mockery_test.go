@@ -55,7 +55,7 @@ func TestCreateUserAPIV2(t *testing.T) {
 
 				err := json.NewDecoder(recorder.Body).Decode(response)
 				assert.NoError(t, err)
-				assert.Equal(t, response.Error, "Bad request, short user name")
+				assert.Equal(t, "Bad request, short user name", response.Error)
 			},
 		},
 		{
